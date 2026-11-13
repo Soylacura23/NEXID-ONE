@@ -1,0 +1,6 @@
+{
+  "name": "NEXID ONE",
+  "description": "Plataforma SaaS de identidad digital profesional con perfiles interactivos, códigos QR dinámicos, analítica y tarjetas inteligentes NFC en 3D.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

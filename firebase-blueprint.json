@@ -1,0 +1,176 @@
+{
+  "entities": {
+    "UserAccount": {
+      "title": "UserAccount",
+      "description": "Private user account profile and workspace preferences.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "displayName": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "email": { "type": "string", "maxLength": 180 },
+        "photoURL": { "type": "string", "maxLength": 500 },
+        "onboardingCompleted": { "type": "boolean" },
+        "accountStatus": { "type": "string", "enum": ["active", "suspended"] },
+        "themePreference": { "type": "string", "enum": ["dark", "light"] },
+        "languagePreference": { "type": "string", "enum": ["es", "en"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "displayName", "email", "onboardingCompleted", "accountStatus", "createdAt", "updatedAt"]
+    },
+    "Identity": {
+      "title": "Identity",
+      "description": "Digital professional identity profile with portfolio, experience, education, links, and template settings.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "ownerId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "slug": { "type": "string", "minLength": 2, "maxLength": 80, "pattern": "^[a-z0-9\\-]+$" },
+        "identityType": { "type": "string", "enum": ["professional", "academic", "business", "creative"] },
+        "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "profession": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "company": { "type": "string", "maxLength": 120 },
+        "location": { "type": "string", "maxLength": 120 },
+        "bio": { "type": "string", "maxLength": 1200 },
+        "photoURL": { "type": "string", "maxLength": 600 },
+        "coverURL": { "type": "string", "maxLength": 600 },
+        "publicEmail": { "type": "string", "maxLength": 180 },
+        "publicPhone": { "type": "string", "maxLength": 40 },
+        "website": { "type": "string", "maxLength": 300 },
+        "showEmail": { "type": "boolean" },
+        "showPhone": { "type": "boolean" },
+        "templateId": { "type": "string", "enum": ["executive", "minimal", "creative", "tech"] },
+        "accentColor": { "type": "string", "maxLength": 20 },
+        "coverStyle": { "type": "string", "enum": ["obsidian", "editorial", "minimal"] },
+        "buttonStyle": { "type": "string", "enum": ["solid", "outline"] },
+        "visibility": { "type": "string", "enum": ["public", "private"] },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "links": { "type": "array" },
+        "projects": { "type": "array" },
+        "experience": { "type": "array" },
+        "education": { "type": "array" },
+        "skills": { "type": "array" },
+        "sectionOrder": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "publishedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "ownerId", "slug", "identityType", "title", "profession", "templateId", "visibility", "status", "createdAt", "updatedAt"]
+    },
+    "Card": {
+      "title": "Card",
+      "description": "Smart NFC card mapping a public redirect code to an owner identity.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "ownerId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "publicCode": { "type": "string", "minLength": 4, "maxLength": 40, "pattern": "^[a-zA-Z0-9\\-]+$" },
+        "identityId": { "type": "string", "maxLength": 128 },
+        "identitySlug": { "type": "string", "maxLength": 80 },
+        "displayName": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "roleLabel": { "type": "string", "maxLength": 80 },
+        "finish": { "type": "string", "enum": ["obsidian", "graphite", "gold", "ivory"] },
+        "layoutStyle": { "type": "string", "enum": ["monogram", "minimal", "executive"] },
+        "status": { "type": "string", "enum": ["unlinked", "active", "disabled"] },
+        "cardType": { "type": "string", "enum": ["virtual", "physical"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "ownerId", "publicCode", "displayName", "finish", "layoutStyle", "status", "cardType", "createdAt", "updatedAt"]
+    },
+    "Contact": {
+      "title": "Contact",
+      "description": "Private networking contact saved by an authenticated user.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "ownerId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "organization": { "type": "string", "maxLength": 120 },
+        "role": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "maxLength": 180 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "tags": { "type": "array" },
+        "notes": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "ownerId", "name", "createdAt", "updatedAt"]
+    },
+    "AnalyticsEvent": {
+      "title": "AnalyticsEvent",
+      "description": "Observable interaction event recorded for a published identity.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "identityId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "identityOwnerId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "eventType": { "type": "string", "enum": ["profile_view", "link_click", "vcard_download", "card_redirect", "share_action"] },
+        "source": { "type": "string", "enum": ["web", "qr", "nfc_redirect", "direct"] },
+        "targetId": { "type": "string", "maxLength": 120 },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "identityId", "identityOwnerId", "eventType", "source", "timestamp"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "Workspace notification for an authenticated user.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "ownerId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "type": { "type": "string", "enum": ["identity_published", "card_linked", "system_info", "config_warning"] },
+        "title": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "message": { "type": "string", "minLength": 1, "maxLength": 400 },
+        "read": { "type": "boolean" },
+        "actionPath": { "type": "string", "maxLength": 200 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "ownerId", "type", "title", "message", "read", "createdAt"]
+    },
+    "AdminAudit": {
+      "title": "AdminAudit",
+      "description": "Audit log entry recorded for administrative actions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "actorId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "action": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "targetType": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "targetId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "actorId", "action", "targetType", "targetId", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserAccount" },
+      "description": "User account profiles isolated by UID."
+    },
+    "/identities/{identityId}": {
+      "schema": { "$ref": "#/entities/Identity" },
+      "description": "Digital identities owned by users; public only when published and visibility is public."
+    },
+    "/cards/{cardId}": {
+      "schema": { "$ref": "#/entities/Card" },
+      "description": "Virtual and registered smart cards linked to identities."
+    },
+    "/contacts/{contactId}": {
+      "schema": { "$ref": "#/entities/Contact" },
+      "description": "Private networking contacts scoped strictly to ownerId."
+    },
+    "/analyticsEvents/{eventId}": {
+      "schema": { "$ref": "#/entities/AnalyticsEvent" },
+      "description": "Observable interaction events for published identities."
+    },
+    "/notifications/{notificationId}": {
+      "schema": { "$ref": "#/entities/Notification" },
+      "description": "User workspace notifications scoped strictly to ownerId."
+    },
+    "/adminAudit/{auditId}": {
+      "schema": { "$ref": "#/entities/AdminAudit" },
+      "description": "Administrative audit log entries."
+    }
+  }
+}

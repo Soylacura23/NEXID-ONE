@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "aos/dist/aos.css";
+
+:root {
+  --bg-canvas: #faf8f4;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f2efe8;
+  --bg-elevated: #ebe6dc;
+  --text-primary: #101114;
+  --text-secondary: #4a4f5a;
+  --text-muted: #6c727f;
+  --border-subtle: #e2ddd3;
+  --border-strong: #cdc6b8;
+  --accent-gold: #b6914f;
+  --accent-gold-soft: #d5b47a;
+  --accent-ink: #101114;
+  --semantic-success: #2a8765;
+  --semantic-warning: #b88224;
+  --semantic-error: #c24b4b;
+  --semantic-info: #4b77ab;
+}
+
+.dark {
+  --bg-canvas: #101114;
+  --bg-surface: #17191d;
+  --bg-surface-alt: #202329;
+  --bg-elevated: #262930;
+  --text-primary: #f4f1eb;
+  --text-secondary: #c9cdd4;
+  --text-muted: #a6abb4;
+  --border-subtle: #34373d;
+  --border-strong: #454952;
+  --accent-gold: #d5b47a;
+  --accent-gold-soft: #e8d2a7;
+  --accent-ink: #101114;
+  --semantic-success: #3baa82;
+  --semantic-warning: #d9a441;
+  --semantic-error: #d96767;
+  --semantic-info: #729bc8;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-display {
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Focus visibility for WCAG 2.2 AA accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Subtle architectural grid background helper */
+.nexid-grid-bg {
+  background-image: linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 48px 48px;
+}

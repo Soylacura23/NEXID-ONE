@@ -1,0 +1,2508 @@
+# NEXID ONE
+## PROMPT MAESTRO DEFINITIVO PARA GOOGLE AI STUDIO
+### Especificación integral de negocio, branding, diseño UI/UX, arquitectura, desarrollo full-stack, Firebase, Three.js, AOS, animaciones y despliegue en Vercel
+
+---
+
+# 0. INSTRUCCIÓN PRINCIPAL
+
+Actúa como un equipo profesional de desarrollo de productos tecnológicos integrado por:
+
+- Director de producto digital.
+- Arquitecto de software full-stack.
+- Diseñador UI/UX senior.
+- Director de arte y branding.
+- Desarrollador React y TypeScript.
+- Ingeniero especializado en Firebase.
+- Desarrollador Three.js y WebGL.
+- Especialista en animaciones e interacciones.
+- Ingeniero de seguridad informática.
+- Especialista en accesibilidad.
+- Ingeniero de aseguramiento de calidad.
+
+Tu misión es **diseñar, construir e integrar NEXID ONE**, una plataforma SaaS de identidad digital profesional que permita crear, personalizar, administrar y compartir perfiles digitales mediante enlaces web, códigos QR y tarjetas inteligentes NFC.
+
+El proyecto se desarrollará inicialmente mediante Google AI Studio y posteriormente se desplegará en Vercel.
+
+La aplicación debe utilizar tecnologías modernas, arquitectura modular, Firebase como infraestructura de autenticación y datos, y una experiencia visual extraordinariamente cuidada.
+
+**No construyas únicamente una landing page. Debes desarrollar una plataforma web completa, con sitio comercial, autenticación, dashboard, editor de perfiles, gestión de tarjetas, contactos, estadísticas, configuración, perfiles públicos y una demostración NFC tridimensional interactiva.**
+
+El resultado debe sentirse como un producto tecnológico comercial de alta gama, no como un ejercicio académico convencional.
+
+### Requisitos innegociables
+
+1. Mantener una identidad visual consistente en toda la aplicación.
+2. Implementar navegación funcional entre todas las páginas.
+3. Utilizar React, TypeScript y Tailwind CSS.
+4. Integrar Firebase Authentication y Cloud Firestore.
+5. Preparar el proyecto para desplegarse en Vercel.
+6. Utilizar Three.js para experiencias tridimensionales.
+7. Utilizar AOS para animaciones de aparición al desplazarse.
+8. Utilizar Motion para microinteracciones y transiciones.
+9. Crear una demostración NFC tridimensional manipulable mediante mouse o pantalla táctil.
+10. Implementar perfiles públicos que puedan abrirse desde otros dispositivos.
+11. Generar códigos QR reales que conduzcan a los perfiles publicados.
+12. Implementar un editor de identidades con vista previa en tiempo real.
+13. Desarrollar interfaces responsive para escritorio, tablet y móvil.
+14. Utilizar datos reales cuando exista infraestructura configurada.
+15. Evitar estadísticas inventadas presentadas como actividad real.
+16. No integrar Gemini API ni servicios generativos que requieran consumo de tokens.
+17. No incluir pagos reales en esta primera versión.
+18. No dejar botones decorativos, rutas rotas ni funcionalidades simuladas presentadas como reales.
+19. Implementar estados de carga, error, vacío y confirmación.
+20. Organizar el código para permitir ampliaciones posteriores.
+
+Si alguna integración requiere configurar un servicio externo, debes preparar su implementación, identificar claramente la configuración pendiente y proporcionar un estado alternativo funcional. Nunca inventes credenciales ni afirmes que una integración está conectada sin verificarlo.
+
+---
+
+# PARTE I. IDENTIDAD EMPRESARIAL Y CONCEPTO
+
+## 1. ¿QUÉ ES NEXID ONE?
+
+**NEXID ONE es una plataforma tecnológica de identidad digital profesional que transforma la manera en que personas, emprendedores, estudiantes y organizaciones se presentan, comparten información y establecen conexiones.**
+
+Su propuesta consiste en centralizar la identidad profesional de una persona en un perfil digital interactivo, personalizable y permanentemente actualizable.
+
+La plataforma combina tres elementos fundamentales:
+
+**Identidad digital:** un perfil profesional que reúne información personal, académica, laboral, comercial y de contacto.
+
+**Conectividad:** herramientas para compartir esa identidad mediante enlaces web, códigos QR y tarjetas inteligentes NFC.
+
+**Gestión:** un entorno desde el cual el usuario administra sus identidades, tarjetas, contactos y estadísticas.
+
+NEXID ONE no es simplemente una página de presentación ni una empresa que vende tarjetas NFC.
+
+Es un ecosistema digital para gestionar la presencia profesional y facilitar conexiones.
+
+## 2. PROBLEMA QUE RESUELVE
+
+Actualmente, la información profesional suele estar dispersa.
+
+Una persona puede utilizar:
+
+- LinkedIn para su trayectoria profesional.
+- GitHub para sus proyectos.
+- Behance para su portafolio.
+- Instagram para su marca personal.
+- WhatsApp para comunicarse.
+- Correo electrónico para recibir propuestas.
+- Tarjetas físicas para compartir sus datos.
+
+Esta fragmentación dificulta presentar una identidad profesional completa.
+
+Las tarjetas tradicionales también presentan limitaciones:
+
+- Se deterioran.
+- Pueden perderse.
+- Tienen espacio limitado.
+- Su información puede quedar desactualizada.
+- Requieren volver a imprimirse cuando cambian los datos.
+- No permiten presentar portafolios interactivos.
+- No ofrecen herramientas integradas de análisis.
+
+NEXID ONE centraliza la información y permite actualizarla sin reemplazar el medio utilizado para compartirla.
+
+## 3. SOLUCIÓN
+
+Cada usuario puede crear una cuenta y administrar una o varias identidades digitales.
+
+Una identidad puede contener:
+
+- Fotografía.
+- Nombre.
+- Profesión.
+- Biografía.
+- Información de contacto.
+- Redes sociales.
+- Portafolio.
+- Proyectos.
+- Experiencia laboral.
+- Formación académica.
+- Habilidades.
+- Certificaciones.
+- Servicios.
+- Enlaces.
+- Botones de acción.
+
+Cada identidad publicada dispone de una dirección web propia.
+
+El usuario puede compartirla directamente, generar un código QR o asociarla a una tarjeta NFC.
+
+Cuando una tarjeta NFC compatible contiene una URL de NEXID ONE, un teléfono compatible puede detectar esa URL y permitir abrir el perfil correspondiente.
+
+La información se obtiene de la plataforma, por lo que puede actualizarse sin reemplazar la tarjeta física.
+
+## 4. PROPUESTA DE VALOR
+
+**«Tu identidad profesional, centralizada, conectada y siempre actualizada».**
+
+NEXID ONE permite transformar una presentación convencional en una experiencia digital profesional.
+
+Sus ventajas principales son:
+
+- Centralización de información.
+- Actualización inmediata.
+- Presentación visual atractiva.
+- Compartición rápida.
+- Personalización.
+- Múltiples identidades.
+- Gestión de contactos.
+- Herramientas de análisis.
+- Compatibilidad con enlaces, QR y NFC.
+- Escalabilidad hacia soluciones empresariales.
+
+## 5. PÚBLICO OBJETIVO
+
+### Estudiantes
+
+Pueden mostrar su formación, proyectos, habilidades, certificaciones y portafolio académico.
+
+### Profesionales
+
+Pueden presentar experiencia laboral, especialidades, trayectoria y medios de contacto.
+
+### Emprendedores
+
+Pueden compartir información comercial, servicios, productos y canales de comunicación.
+
+### Creativos y desarrolladores
+
+Pueden centralizar portafolios, proyectos, repositorios y trabajos destacados.
+
+### Empresas
+
+Pueden administrar identidades corporativas y mantener una presentación institucional coherente.
+
+## 6. EJEMPLO DE USO
+
+Alex Rivera es diseñador digital y desarrollador web.
+
+Asiste a un evento empresarial y conoce a un posible cliente.
+
+Alex tiene una tarjeta NEXID ONE asociada a su identidad profesional.
+
+Acerca la tarjeta al teléfono compatible del cliente.
+
+El dispositivo detecta el enlace NFC y permite abrir su perfil.
+
+El visitante encuentra su presentación, proyectos, portafolio, habilidades, redes sociales y medios de contacto.
+
+Puede guardar su contacto mediante una vCard o visitar sus proyectos.
+
+Posteriormente, Alex actualiza su portafolio desde el dashboard.
+
+La tarjeta continúa abriendo el mismo destino, pero el perfil presenta información actualizada.
+
+Este ejemplo debe utilizarse como base de la demostración principal del producto.
+
+## 7. VISIÓN COMERCIAL
+
+NEXID ONE debe proyectarse como una startup tecnológica con potencial de crecimiento.
+
+El modelo de negocio puede contemplar:
+
+- Plan gratuito con funciones esenciales.
+- Plan profesional con personalización avanzada.
+- Venta de tarjetas NFC físicas.
+- Servicios de personalización.
+- Planes empresariales.
+- Administración de identidades corporativas.
+- Herramientas avanzadas de analítica.
+
+En esta versión, los planes serán informativos.
+
+No implementar cobros reales ni presentar suscripciones ficticias como pagos realizados.
+
+---
+
+# PARTE II. BRANDING E IDENTIDAD VISUAL
+
+## 8. NOMBRE Y ESLOGAN
+
+Nombre:
+
+**NEXID ONE**
+
+Eslogan principal:
+
+**One identity. Infinite connections.**
+
+Eslogan secundario:
+
+**Una identidad. Infinitas conexiones.**
+
+Frase comercial para el hero:
+
+**Tu identidad. Una conexión. Infinitas posibilidades.**
+
+## 9. PERSONALIDAD DE MARCA
+
+La marca debe comunicar:
+
+- Innovación.
+- Elegancia.
+- Confianza.
+- Profesionalismo.
+- Precisión.
+- Exclusividad.
+- Modernidad.
+- Simplicidad.
+- Tecnología.
+
+Evitar una estética infantil, excesivamente colorida o genérica.
+
+La dirección artística debe combinar minimalismo tecnológico y sofisticación empresarial.
+
+Tomar como referencias generales de calidad visual la claridad de Apple, la precisión de Linear y la organización de Notion, sin copiar directamente sus interfaces, logotipos ni composiciones.
+
+## 10. LOGOTIPO
+
+Diseñar una identidad visual geométrica basada en la letra N.
+
+El símbolo debe sugerir conexión, continuidad, estructura y tecnología.
+
+Requisitos:
+
+- Construcción minimalista.
+- Líneas geométricas.
+- Proporciones equilibradas.
+- Reconocimiento en tamaños pequeños.
+- Versiones horizontal y vertical.
+- Isotipo independiente.
+- Versión monocromática.
+- Versión dorada.
+- Compatibilidad con fondos claros y oscuros.
+
+El logotipo debe funcionar en:
+
+- Navbar.
+- Sidebar.
+- Pantalla de acceso.
+- Tarjetas NFC.
+- Favicon.
+- Perfiles.
+- Material promocional.
+
+Evitar símbolos genéricos de Wi-Fi, chips o circuitos como identidad principal.
+
+## 11. PALETA DE COLORES
+
+### Colores principales
+
+Obsidian Black: `#101114`
+
+Graphite: `#202329`
+
+Deep Surface: `#17191D`
+
+Elevated Surface: `#262930`
+
+Premium Gold: `#D5B47A`
+
+Soft Gold: `#E8D2A7`
+
+Ivory White: `#F4F1EB`
+
+Muted Gray: `#A6ABB4`
+
+Border Gray: `#34373D`
+
+### Colores semánticos
+
+Success: `#3BAA82`
+
+Warning: `#D9A441`
+
+Error: `#D96767`
+
+Info: `#729BC8`
+
+### Uso del dorado
+
+El dorado debe emplearse con moderación.
+
+Aplicarlo en:
+
+- Botones principales.
+- Indicadores activos.
+- Bordes seleccionados.
+- Elementos de marca.
+- Detalles de tarjetas.
+- Enlaces destacados.
+- Iluminación de escenas 3D.
+
+No utilizar grandes superficies doradas sin necesidad.
+
+El dorado debe comunicar sofisticación, no saturación visual.
+
+## 12. TIPOGRAFÍA
+
+Utilizar:
+
+**Manrope:** títulos, encabezados, cifras destacadas y elementos de marca.
+
+**Inter:** párrafos, formularios, tablas, botones y elementos de interfaz.
+
+Escala orientativa:
+
+- Hero desktop: 64–80 px.
+- Hero móvil: 38–48 px.
+- H1 interno: 36–48 px.
+- H2: 28–40 px.
+- H3: 22–28 px.
+- Texto principal: 15–17 px.
+- Texto secundario: 13–15 px.
+- Etiquetas: 12–14 px.
+
+Ajustar mediante `clamp()` y breakpoints.
+
+Mantener jerarquía tipográfica clara y excelente legibilidad.
+
+## 13. SISTEMA DE DISEÑO
+
+Utilizar una escala de espaciado basada en múltiplos de 4 px.
+
+Bordes redondeados:
+
+- Botones: 10–12 px.
+- Inputs: 10–12 px.
+- Tarjetas: 14–18 px.
+- Modales: 18–24 px.
+- Contenedores destacados: 20–28 px.
+
+Implementar:
+
+- Sombras suaves.
+- Bordes discretos.
+- Superficies elevadas.
+- Separación visual coherente.
+- Estados hover.
+- Estados focus.
+- Estados disabled.
+- Estados loading.
+- Estados selected.
+- Estados error.
+
+Evitar sombras exageradas y efectos de vidrio indiscriminados.
+
+## 14. TEMAS
+
+Implementar modo oscuro y claro.
+
+El modo oscuro será predeterminado.
+
+El modo claro debe conservar la personalidad premium de la marca.
+
+Guardar la preferencia del usuario.
+
+Utilizar variables CSS o tokens semánticos para evitar duplicar estilos.
+
+---
+
+# PARTE III. TECNOLOGÍAS Y ARQUITECTURA
+
+## 15. STACK TECNOLÓGICO
+
+### Frontend
+
+- React.
+- TypeScript.
+- Vite, cuando corresponda al proyecto generado.
+- Tailwind CSS.
+- React Router.
+- Lucide React.
+
+### Animaciones
+
+- Three.js.
+- React Three Fiber.
+- `@react-three/drei`.
+- AOS.
+- Motion.
+- CSS Transitions.
+
+### Visualización
+
+- Recharts.
+- Biblioteca ligera para códigos QR.
+- Utilidades para exportación CSV y vCard.
+
+### Backend administrado
+
+- Firebase Authentication.
+- Cloud Firestore.
+- Firebase Storage, si se configura y resulta necesario.
+- Firebase Security Rules.
+
+### Despliegue
+
+- Vercel.
+- Variables de entorno.
+- Dominio HTTPS.
+- Configuración de rutas SPA.
+
+### Persistencia complementaria
+
+- localStorage para preferencias no sensibles.
+- sessionStorage para estados temporales.
+- IndexedDB cuando resulte apropiado para archivos locales o borradores grandes.
+
+No implementar PHP ni MySQL.
+
+No introducir un servidor propio si Firebase satisface los requisitos.
+
+## 16. ARQUITECTURA GENERAL
+
+Separar claramente:
+
+- Presentación.
+- Navegación.
+- Estado.
+- Lógica de negocio.
+- Acceso a datos.
+- Servicios externos.
+- Validación.
+- Seguridad.
+- Animaciones.
+- Escenas 3D.
+
+No realizar consultas de Firestore directamente desde todos los componentes.
+
+Crear servicios y hooks reutilizables.
+
+Utilizar tipos TypeScript para las entidades principales.
+
+No duplicar lógica.
+
+## 17. ESTRUCTURA DE CARPETAS
+
+Organizar el proyecto aproximadamente así:
+
+```text
+nexid-one/
+├── public/
+│   ├── images/
+│   ├── icons/
+│   ├── models/
+│   └── favicon.svg
+├── src/
+│   ├── app/
+│   ├── assets/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── layout/
+│   │   ├── navigation/
+│   │   ├── forms/
+│   │   ├── profiles/
+│   │   ├── cards/
+│   │   ├── charts/
+│   │   └── feedback/
+│   ├── features/
+│   │   ├── auth/
+│   │   ├── onboarding/
+│   │   ├── identities/
+│   │   ├── contacts/
+│   │   ├── nfc/
+│   │   ├── analytics/
+│   │   ├── sharing/
+│   │   └── settings/
+│   ├── scenes/
+│   │   ├── HeroScene/
+│   │   ├── NFCExperience/
+│   │   └── CardCustomizer/
+│   ├── hooks/
+│   ├── services/
+│   │   ├── firebase/
+│   │   ├── identities/
+│   │   ├── cards/
+│   │   └── analytics/
+│   ├── contexts/
+│   ├── types/
+│   ├── utils/
+│   ├── data/
+│   ├── pages/
+│   │   ├── marketing/
+│   │   ├── auth/
+│   │   ├── dashboard/
+│   │   ├── public/
+│   │   └── admin/
+│   ├── styles/
+│   └── main.tsx
+├── firestore.rules
+├── firestore.indexes.json
+├── storage.rules
+├── .env.example
+├── package.json
+├── README.md
+└── vercel.json
+```
+
+Adaptar esta estructura a las convenciones del entorno sin sacrificar modularidad.
+
+---
+
+# PARTE IV. ANIMACIONES Y EXPERIENCIA TRIDIMENSIONAL
+
+## 18. FILOSOFÍA DE MOVIMIENTO
+
+NEXID ONE debe utilizar animaciones sofisticadas, fluidas y deliberadas.
+
+El movimiento debe comunicar calidad y precisión.
+
+No convertir la interfaz en una experiencia arcade.
+
+Las animaciones deben reforzar la narrativa comercial y facilitar la comprensión del producto.
+
+Utilizar:
+
+**Three.js:** objetos, materiales, iluminación y escenas tridimensionales.
+
+**React Three Fiber:** integración declarativa con React.
+
+**Drei:** controles y utilidades para escenas.
+
+**AOS:** apariciones de secciones al desplazarse.
+
+**Motion:** microinteracciones y transiciones de interfaz.
+
+**CSS:** efectos sencillos y estados visuales.
+
+Evitar conflictos entre motores de animación.
+
+## 19. HERO TRIDIMENSIONAL
+
+La landing page debe comenzar con una composición visual de alto impacto.
+
+Mostrar:
+
+- Tarjeta NEXID ONE tridimensional.
+- Teléfono inteligente.
+- Perfil digital visible.
+- Iluminación cinematográfica.
+- Reflejos controlados.
+- Sombras suaves.
+- Movimiento flotante lento.
+
+La tarjeta debe tener:
+
+- Proporciones físicas realistas.
+- Acabado negro mate.
+- Bordes biselados.
+- Logotipo dorado.
+- Materiales físicamente coherentes.
+- Espesor visible.
+- Iluminación premium.
+
+El teléfono debe mostrar una interfaz de perfil coherente con la aplicación.
+
+La composición debe responder sutilmente al cursor.
+
+No utilizar rotaciones exageradas.
+
+## 20. DEMOSTRACIÓN NFC 3D INTERACTIVA
+
+Esta es una de las características más importantes del proyecto.
+
+Crear una experiencia tridimensional integrada en la página, con una interacción similar a la exploración de un producto físico.
+
+**Debe ser interactiva como una experiencia inmersiva, pero no debe parecer un videojuego.**
+
+### 20.1. Escenario
+
+Diseñar una escena con:
+
+- Tarjeta NEXID ONE.
+- Teléfono inteligente.
+- Fondo oscuro.
+- Iluminación ambiental.
+- Luces doradas discretas.
+- Sombras suaves.
+- Profundidad.
+- Reflejos moderados.
+- Composición equilibrada.
+
+No utilizar fondos espaciales, partículas excesivas ni efectos de ciencia ficción.
+
+### 20.2. Estado inicial
+
+Mostrar la tarjeta flotando suavemente frente al teléfono.
+
+Texto:
+
+**«Una conexión comienza con un gesto».**
+
+Instrucción:
+
+«Acerca la tarjeta al dispositivo y descubre NEXID ONE».
+
+Mostrar un indicador discreto de interacción.
+
+### 20.3. Exploración de la tarjeta
+
+Permitir que el usuario:
+
+- Pase el cursor sobre la tarjeta.
+- Observe una ligera inclinación.
+- La seleccione.
+- La arrastre.
+- Explore sus reflejos y acabados.
+
+Implementar interacciones mediante Pointer Events.
+
+La tarjeta debe reaccionar suavemente.
+
+No permitir movimientos descontrolados.
+
+### 20.4. Acercamiento al teléfono
+
+El usuario arrastra la tarjeta hacia el teléfono.
+
+Durante el movimiento:
+
+- La tarjeta sigue el cursor de manera suavizada.
+- Cambia ligeramente su orientación.
+- Se ajustan los reflejos.
+- La zona de conexión comienza a iluminarse.
+- Aparece una indicación visual de proximidad.
+
+Implementar detección de proximidad mediante coordenadas o una zona de activación tridimensional.
+
+No exigir una colisión física exacta.
+
+### 20.5. Magnetic snapping
+
+Cuando la tarjeta esté suficientemente cerca:
+
+- Se activa una atracción visual suave.
+- La tarjeta se alinea automáticamente.
+- El movimiento se estabiliza.
+- Se inicia la secuencia de conexión.
+
+Este comportamiento debe ser natural y elegante.
+
+### 20.6. Secuencia NFC
+
+Al producirse la conexión:
+
+1. La tarjeta se aproxima al teléfono.
+2. Aparecen ondas doradas concéntricas.
+3. Se ilumina discretamente la pantalla.
+4. Aparece una notificación.
+5. El teléfono muestra el nombre Alex Rivera.
+6. Se presenta una vista previa del perfil.
+7. Se habilita el acceso al perfil completo.
+
+Texto de confirmación:
+
+**Identidad detectada**
+
+**Alex Rivera — Diseñador digital**
+
+La animación de confirmación debe durar aproximadamente entre dos y tres segundos después del acercamiento.
+
+### 20.7. Apertura del perfil
+
+Mostrar un botón:
+
+**Explorar identidad**
+
+Al pulsarlo, navegar a:
+
+`/demo/perfil/alex-rivera`
+
+Aplicar una transición elegante entre la escena tridimensional y la página del perfil.
+
+### 20.8. Controles
+
+Incluir:
+
+- Iniciar experiencia.
+- Conectar automáticamente.
+- Reiniciar.
+- Explorar perfil.
+- Omitir animación.
+
+El usuario debe poder completar la experiencia sin arrastrar la tarjeta.
+
+### 20.9. Interacción táctil
+
+En móviles:
+
+- Permitir arrastrar la tarjeta con el dedo.
+- Evitar conflictos con el desplazamiento de la página.
+- Utilizar un área interactiva delimitada.
+- Ajustar la cámara y los modelos.
+- Mantener controles accesibles.
+- Permitir la secuencia automática.
+
+### 20.10. Accesibilidad
+
+Implementar:
+
+- Controles mediante teclado.
+- Botón de conexión alternativo.
+- Mensajes accesibles de estado.
+- Respeto a `prefers-reduced-motion`.
+- Contraste adecuado.
+- Fallback cuando WebGL no esté disponible.
+
+### 20.11. Restricciones
+
+No incluir:
+
+- Puntuaciones.
+- Niveles.
+- Cronómetros competitivos.
+- Recompensas.
+- Sonidos arcade.
+- Mecánicas de videojuego.
+- Efectos visuales excesivos.
+
+La experiencia debe sentirse como una demostración interactiva de un producto tecnológico de lujo.
+
+## 21. PERSONALIZADOR 3D DE TARJETAS
+
+Dentro del módulo de tarjetas, crear una vista tridimensional del producto.
+
+Permitir:
+
+- Rotar ligeramente la tarjeta.
+- Observar el frente y reverso.
+- Cambiar entre acabados visuales.
+- Personalizar el nombre mostrado.
+- Visualizar el logotipo.
+- Cambiar el diseño.
+- Asociar una identidad.
+
+Los cambios deben reflejarse en tiempo real.
+
+El personalizador no debe prometer fabricación física automática.
+
+## 22. AOS
+
+Utilizar AOS en la landing page y páginas comerciales.
+
+Animaciones recomendadas:
+
+- Fade-up para títulos.
+- Fade-in para párrafos.
+- Desplazamiento lateral moderado.
+- Aparición escalonada de tarjetas.
+- Revelación progresiva de secciones.
+- Transiciones discretas en testimonios o beneficios.
+
+Duración orientativa: 400–800 ms.
+
+No animar indiscriminadamente todos los elementos.
+
+No utilizar AOS para controlar los objetos internos de Three.js.
+
+## 23. MOTION
+
+Utilizar Motion para:
+
+- Apertura de modales.
+- Transiciones entre páginas.
+- Menús desplegables.
+- Cambios de pestañas.
+- Tarjetas interactivas.
+- Botones.
+- Toasts.
+- Indicadores.
+- Paneles laterales.
+- Vista previa del editor.
+- Estados de carga.
+
+Utilizar curvas de movimiento naturales.
+
+Mantener coherencia en duración y aceleración.
+
+## 24. OPTIMIZACIÓN 3D
+
+Implementar:
+
+- Carga diferida de escenas.
+- React Suspense.
+- Geometrías optimizadas.
+- Materiales reutilizables.
+- Limitación razonable del pixel ratio.
+- Control de sombras.
+- Reducción de draw calls.
+- Liberación de recursos.
+- Pausa de escenas no visibles.
+- Calidad adaptable.
+- Fallback sin WebGL.
+
+No sacrificar rendimiento por efectos decorativos.
+
+---
+
+# PARTE V. SITIO WEB COMERCIAL
+
+## 25. ESTRUCTURA DE NAVEGACIÓN
+
+Crear:
+
+- `/`
+- `/soluciones`
+- `/como-funciona`
+- `/demo`
+- `/precios`
+- `/contacto`
+- `/faq`
+- `/ayuda`
+- `/terminos`
+- `/privacidad`
+
+La navegación debe ser funcional.
+
+Implementar encabezado sticky, menú móvil y footer completo.
+
+## 26. LANDING PAGE
+
+### 26.1. Navbar
+
+Elementos:
+
+- Logotipo.
+- Soluciones.
+- Cómo funciona.
+- Demostración.
+- Precios.
+- Iniciar sesión.
+- Crear cuenta.
+
+Diseño:
+
+- Fondo oscuro.
+- Bordes discretos.
+- Espaciado generoso.
+- Efecto de transparencia moderado al desplazarse.
+- Estados hover.
+- Indicador de página activa.
+
+En móvil, utilizar menú desplegable accesible.
+
+### 26.2. Hero
+
+Título:
+
+**Tu identidad. Una conexión. Infinitas posibilidades.**
+
+Subtítulo:
+
+«Crea, personaliza y comparte tu identidad profesional desde una plataforma diseñada para conectar personas, proyectos y oportunidades».
+
+Botones:
+
+**Crear mi identidad**
+
+**Explorar demostración**
+
+Integrar la escena Three.js de tarjeta y teléfono.
+
+Diseñar una composición editorial equilibrada.
+
+En escritorio, distribuir contenido textual y visual.
+
+En móvil, reorganizar verticalmente.
+
+### 26.3. Problema y solución
+
+Mostrar la diferencia entre información fragmentada e identidad centralizada.
+
+Utilizar una composición visual que represente múltiples plataformas convergiendo en un único perfil NEXID ONE.
+
+### 26.4. Beneficios
+
+Presentar:
+
+- Identidad centralizada.
+- Actualización inmediata.
+- Compartición inteligente.
+- Personalización.
+- Networking.
+- Analítica.
+
+Utilizar tarjetas con iconografía Lucide.
+
+### 26.5. Cómo funciona
+
+Mostrar cuatro pasos:
+
+1. Crea tu identidad.
+2. Personaliza tu perfil.
+3. Comparte mediante QR o NFC.
+4. Conecta con nuevas oportunidades.
+
+Utilizar una narrativa visual clara.
+
+### 26.6. Productos
+
+Presentar:
+
+**NEXID ONE Profile**
+
+Perfiles profesionales digitales.
+
+**NEXID ONE Card**
+
+Tarjetas inteligentes NFC.
+
+**NEXID ONE Studio**
+
+Editor visual de identidades.
+
+**NEXID ONE Connect**
+
+Herramientas de contactos y networking.
+
+**NEXID ONE Insights**
+
+Estadísticas de interacción.
+
+**NEXID ONE Teams**
+
+Gestión de identidades empresariales.
+
+### 26.7. Segmentos
+
+Crear secciones para:
+
+- Estudiantes.
+- Profesionales.
+- Emprendedores.
+- Empresas.
+
+Cada segmento debe tener una descripción y una representación visual relevante.
+
+### 26.8. Demostración NFC
+
+Incorporar una vista previa de la experiencia 3D.
+
+Botón:
+
+**Probar conexión**
+
+Abrir `/demo`.
+
+### 26.9. Personalización
+
+Mostrar diferentes plantillas de perfiles.
+
+Permitir alternar entre ejemplos.
+
+### 26.10. Precios
+
+Crear planes ilustrativos:
+
+- Free.
+- Professional.
+- Business.
+
+No inventar precios definitivos ni procesar pagos.
+
+Mostrar claramente que los planes son una propuesta comercial.
+
+### 26.11. Preguntas frecuentes
+
+Incluir preguntas sobre:
+
+- Qué es NEXID ONE.
+- Cómo funciona NFC.
+- Compatibilidad de teléfonos.
+- Uso de QR.
+- Actualización de perfiles.
+- Personalización.
+- Privacidad.
+- Tarjetas físicas.
+- Diferencia entre planes.
+
+### 26.12. Footer
+
+Incluir:
+
+- Logotipo.
+- Descripción.
+- Navegación.
+- Productos.
+- Ayuda.
+- Contacto.
+- Términos.
+- Privacidad.
+
+## 27. PÁGINAS COMERCIALES SECUNDARIAS
+
+Cada página debe tener contenido real y diseño propio.
+
+No reutilizar una misma plantilla vacía para todas.
+
+### Soluciones
+
+Explicar cada producto y segmento.
+
+### Cómo funciona
+
+Describir el proceso de creación, publicación, vinculación y compartición.
+
+### Precios
+
+Presentar planes comparables y características.
+
+### Contacto
+
+Crear un formulario validado.
+
+Si no existe un servicio de envío configurado, no afirmar que se enviaron correos. Proporcionar un canal de contacto verificable o indicar que el envío está pendiente de configuración.
+
+### FAQ
+
+Crear preguntas organizadas por categorías.
+
+### Ayuda
+
+Crear un centro de ayuda navegable.
+
+### Términos y privacidad
+
+Crear páginas estructuradas y claramente identificadas como borradores sujetos a revisión legal antes del lanzamiento comercial.
+
+---
+
+# PARTE VI. AUTENTICACIÓN Y ONBOARDING
+
+## 28. FIREBASE AUTHENTICATION
+
+Implementar:
+
+- Registro con correo y contraseña.
+- Inicio de sesión.
+- Cierre de sesión.
+- Recuperación de contraseña.
+- Verificación de correo cuando corresponda.
+- Persistencia de sesión.
+- Protección de rutas privadas.
+- Estados de carga.
+- Manejo de errores.
+
+Utilizar Firebase Authentication.
+
+No almacenar contraseñas en Firestore ni localStorage.
+
+No simular autenticación real cuando Firebase esté configurado.
+
+## 29. PÁGINAS DE ACCESO
+
+Crear:
+
+- `/login`
+- `/registro`
+- `/recuperar-contrasena`
+- `/restablecer-contrasena`
+
+La recuperación debe utilizar los mecanismos oficiales de Firebase.
+
+Si Firebase utiliza enlaces de acción alojados, configurar las rutas y dominios autorizados correctamente.
+
+Diseño:
+
+- Fondo oscuro.
+- Logotipo.
+- Formulario elegante.
+- Campos claros.
+- Validaciones.
+- Indicadores de contraseña.
+- Mensajes accesibles.
+- Enlaces de navegación.
+
+## 30. ONBOARDING
+
+Después del primer registro, mostrar un proceso de bienvenida.
+
+### Paso 1
+
+Bienvenida a NEXID ONE.
+
+### Paso 2
+
+Información básica.
+
+### Paso 3
+
+Selección de plantilla.
+
+### Paso 4
+
+Creación y publicación de la primera identidad.
+
+Incluir indicador de progreso.
+
+Permitir guardar el avance.
+
+Evitar que el usuario pierda información al navegar.
+
+---
+
+# PARTE VII. APLICACIÓN PRIVADA
+
+## 31. LAYOUT DEL DASHBOARD
+
+Crear un entorno privado con:
+
+- Sidebar.
+- Topbar.
+- Área principal.
+- Navegación activa.
+- Menú de usuario.
+- Notificaciones.
+- Selector de tema.
+- Breadcrumbs cuando sean útiles.
+
+En escritorio, utilizar sidebar fija o colapsable.
+
+En tablet, permitir colapsarla.
+
+En móvil, utilizar navegación inferior y menú complementario.
+
+## 32. DASHBOARD PRINCIPAL
+
+Ruta:
+
+`/app/dashboard`
+
+Mostrar:
+
+- Bienvenida personalizada.
+- Número de identidades.
+- Número de tarjetas.
+- Contactos guardados.
+- Visitas registradas.
+- Clics en enlaces.
+- Actividad reciente.
+- Acciones rápidas.
+- Gráficos de rendimiento.
+
+Los indicadores deben obtenerse de datos reales.
+
+Cuando no exista actividad, mostrar cero y estados vacíos apropiados.
+
+No generar visitas aleatorias.
+
+## 33. MIS IDENTIDADES
+
+Ruta:
+
+`/app/identidades`
+
+Permitir:
+
+- Crear.
+- Editar.
+- Duplicar.
+- Archivar.
+- Desarchivar.
+- Eliminar.
+- Publicar.
+- Despublicar.
+- Compartir.
+- Previsualizar.
+
+Mostrar tarjetas con:
+
+- Fotografía.
+- Nombre.
+- Tipo.
+- Estado.
+- Plantilla.
+- Fecha de actualización.
+- Acciones.
+
+Implementar búsqueda, filtros y ordenamiento.
+
+Confirmar acciones destructivas.
+
+## 34. EDITOR DE IDENTIDADES
+
+Ruta:
+
+`/app/identidades/:id/editar`
+
+El editor es uno de los componentes más importantes.
+
+### Diseño desktop
+
+Panel izquierdo:
+
+Controles de edición.
+
+Panel derecho:
+
+Vista previa del perfil.
+
+### Diseño móvil
+
+Pestañas:
+
+- Editar.
+- Vista previa.
+
+### Secciones del editor
+
+**Información principal**
+
+- Nombre.
+- Apellido o nombre público.
+- Profesión.
+- Empresa.
+- Ubicación opcional.
+- Biografía.
+- Fotografía.
+- Portada.
+
+**Contacto**
+
+- Correo público.
+- Teléfono público.
+- Sitio web.
+- Ubicación.
+- Botones de contacto.
+
+**Redes sociales**
+
+- LinkedIn.
+- GitHub.
+- Instagram.
+- Behance.
+- YouTube.
+- TikTok.
+- Otras plataformas.
+
+**Portafolio**
+
+- Proyectos.
+- Descripciones.
+- Imágenes.
+- Enlaces.
+- Tecnologías.
+- Categorías.
+
+**Experiencia**
+
+- Cargo.
+- Organización.
+- Fechas.
+- Descripción.
+
+**Educación**
+
+- Institución.
+- Programa.
+- Periodo.
+- Descripción.
+
+**Habilidades**
+
+- Nombre.
+- Categoría.
+- Orden.
+
+**Apariencia**
+
+- Plantilla.
+- Colores.
+- Tipografía permitida.
+- Distribución.
+- Botones.
+- Estilo de portada.
+
+**Privacidad**
+
+- Perfil público o privado.
+- Visibilidad de información.
+- Control de campos sensibles.
+
+### Comportamiento
+
+Implementar:
+
+- Vista previa inmediata.
+- Validación.
+- Indicador de cambios pendientes.
+- Guardado explícito.
+- Guardado automático de borradores cuando sea apropiado.
+- Confirmación de publicación.
+- Reordenamiento de secciones.
+- Restauración de cambios no guardados.
+- Estados de error.
+- Confirmación antes de abandonar cambios pendientes.
+
+No realizar escrituras innecesarias a Firestore por cada pulsación de tecla.
+
+Utilizar debounce y guardar operaciones coherentes.
+
+## 35. PLANTILLAS
+
+Crear cuatro plantillas:
+
+### Executive
+
+Elegante, sobria y corporativa.
+
+### Minimal
+
+Diseño limpio y tipográfico.
+
+### Creative
+
+Mayor protagonismo visual del portafolio.
+
+### Tech
+
+Orientada a desarrolladores y profesionales tecnológicos.
+
+Todas deben mantener la identidad de calidad de NEXID ONE.
+
+Las plantillas deben ser realmente diferentes en composición, no solamente en color.
+
+---
+
+# PARTE VIII. PERFILES PÚBLICOS
+
+## 36. RUTAS
+
+Implementar:
+
+`/perfil/:slug`
+
+Cada identidad publicada debe tener un slug único.
+
+No utilizar información sensible en el identificador.
+
+El perfil debe poder abrirse desde otro dispositivo mediante una URL pública.
+
+## 37. CONTENIDO
+
+Mostrar:
+
+- Portada.
+- Fotografía.
+- Nombre.
+- Profesión.
+- Biografía.
+- Redes sociales.
+- Proyectos.
+- Experiencia.
+- Educación.
+- Habilidades.
+- Contacto.
+- Botones de acción.
+
+Permitir:
+
+- Copiar enlace.
+- Compartir.
+- Descargar vCard.
+- Abrir enlaces externos.
+- Consultar proyectos.
+
+## 38. PRIVACIDAD
+
+Los perfiles privados no deben exponerse mediante consultas públicas.
+
+No mostrar automáticamente correo o teléfono del propietario si no los ha marcado como públicos.
+
+Separar información pública y privada.
+
+Aplicar las restricciones desde Firestore Security Rules, no solamente ocultando elementos de interfaz.
+
+---
+
+# PARTE IX. TARJETAS NFC
+
+## 39. CONCEPTO
+
+NEXID ONE Card representa una tarjeta física inteligente que permite abrir una identidad digital.
+
+La aplicación debe administrar la relación entre una tarjeta y un perfil.
+
+Una tarjeta puede tener una URL persistente como:
+
+`/t/:codigoPublico`
+
+La ruta consulta el destino asociado y redirige hacia la identidad publicada correspondiente.
+
+## 40. MÓDULO DE TARJETAS
+
+Ruta:
+
+`/app/tarjetas`
+
+Permitir:
+
+- Visualizar tarjetas.
+- Crear tarjetas virtuales.
+- Personalizar su apariencia.
+- Asociar una identidad.
+- Cambiar identidad asociada.
+- Desactivar.
+- Reactivar.
+- Consultar estado.
+- Copiar enlace.
+- Probar redirección.
+
+Mostrar estados:
+
+- Sin asociar.
+- Activa.
+- Desactivada.
+
+## 41. SEGURIDAD DE TARJETAS
+
+Distinguir entre:
+
+**Tarjetas virtuales de demostración:** creadas dentro de la aplicación.
+
+**Tarjetas físicas reales:** requieren un proceso seguro de emisión, registro y activación.
+
+No permitir que cualquier usuario reclame una tarjeta física únicamente introduciendo un código público.
+
+Diseñar un mecanismo de activación mediante token secreto de un solo uso o una operación confiable del servidor.
+
+La emisión y activación de tarjetas físicas debe ejecutarse mediante infraestructura segura, no mediante escrituras administrativas abiertas desde el navegador.
+
+No afirmar que una tarjeta física ha sido programada si solamente se creó su representación digital.
+
+---
+
+# PARTE X. COMPARTIR Y CÓDIGOS QR
+
+## 42. MÓDULO COMPARTIR
+
+Ruta:
+
+`/app/compartir`
+
+Permitir seleccionar una identidad.
+
+Mostrar:
+
+- URL pública.
+- Código QR.
+- Vista previa.
+- Botón copiar.
+- Compartir mediante Web Share API.
+- Descargar QR PNG.
+- Descargar QR SVG cuando la biblioteca lo permita.
+- Descargar vCard.
+
+El QR debe codificar la URL pública real del perfil.
+
+No utilizar enlaces temporales del entorno de desarrollo como destino definitivo.
+
+Utilizar una variable de configuración para la URL pública de producción.
+
+---
+
+# PARTE XI. CONTACTOS Y NETWORKING
+
+## 43. GESTOR DE CONTACTOS
+
+Ruta:
+
+`/app/contactos`
+
+Permitir:
+
+- Agregar contactos.
+- Editar.
+- Eliminar.
+- Buscar.
+- Filtrar.
+- Etiquetar.
+- Añadir notas.
+- Registrar fecha de creación.
+- Exportar CSV.
+- Exportar vCard.
+
+Los contactos deben pertenecer exclusivamente al usuario autenticado.
+
+No permitir acceso cruzado entre cuentas.
+
+## 44. INTERCAMBIO DE CONTACTOS
+
+Diseñar una experiencia para guardar información profesional.
+
+La descarga de vCard debe funcionar sin requerir que el visitante tenga una cuenta.
+
+No recopilar automáticamente datos privados de visitantes.
+
+Cualquier formulario para compartir información de contacto debe solicitar consentimiento informado.
+
+---
+
+# PARTE XII. ANALÍTICA
+
+## 45. NEXID ONE INSIGHTS
+
+Ruta:
+
+`/app/analitica`
+
+Mostrar:
+
+- Visitas a perfiles.
+- Clics en enlaces.
+- Identidades más consultadas.
+- Actividad por fecha.
+- Tarjetas utilizadas cuando el evento sea observable.
+- Distribución de interacciones.
+- Comparación entre periodos.
+
+Filtros:
+
+- Últimos 7 días.
+- Últimos 30 días.
+- Periodo personalizado cuando sea viable.
+- Identidad específica.
+
+Utilizar Recharts.
+
+## 46. EVENTOS
+
+Registrar eventos cuando ocurran acciones observables.
+
+Ejemplos:
+
+- `profile_view`
+- `link_click`
+- `vcard_download`
+- `card_redirect`
+- `share_action`
+
+No afirmar que un código QR fue escaneado si únicamente se generó o descargó.
+
+Registrar una visita al destino QR como apertura del perfil, sin atribuirla al QR salvo que exista una URL de seguimiento que permita distinguirla.
+
+Evitar almacenar direcciones IP completas, huellas digitales del dispositivo o información personal innecesaria.
+
+Implementar controles para limitar duplicaciones y abuso de eventos.
+
+No permitir que los clientes escriban libremente estadísticas agregadas de otros usuarios.
+
+Para métricas confiables, utilizar operaciones de servidor controladas o una estrategia de agregación validada.
+
+Si todavía no se configura esa infraestructura, presentar las métricas como provisionales y no como estadísticas verificadas.
+
+---
+
+# PARTE XIII. FIREBASE Y MODELO DE DATOS
+
+## 47. FIREBASE
+
+Integrar:
+
+- Firebase Authentication.
+- Cloud Firestore.
+- Firebase Storage cuando sea necesario.
+- Reglas de seguridad.
+- Índices.
+- Manejo de errores.
+- Estados de conexión.
+
+Utilizar el SDK modular oficial.
+
+No exponer credenciales administrativas.
+
+La configuración pública del SDK de Firebase no sustituye las reglas de seguridad.
+
+## 48. COLECCIONES
+
+Diseñar un modelo de datos coherente.
+
+### users
+
+Campos orientativos:
+
+- uid.
+- displayName.
+- email.
+- photoURL.
+- createdAt.
+- updatedAt.
+- onboardingCompleted.
+- preferences.
+- accountStatus.
+
+### identities
+
+- id.
+- ownerId.
+- slug.
+- title.
+- profession.
+- bio.
+- photoURL.
+- coverURL.
+- templateId.
+- theme.
+- visibility.
+- status.
+- createdAt.
+- updatedAt.
+- publishedAt.
+
+### identityLinks
+
+- id.
+- identityId.
+- label.
+- url.
+- icon.
+- order.
+- enabled.
+
+### identityProjects
+
+- id.
+- identityId.
+- title.
+- description.
+- imageURL.
+- projectURL.
+- technologies.
+- order.
+
+### identityExperience
+
+- id.
+- identityId.
+- position.
+- organization.
+- startDate.
+- endDate.
+- description.
+
+### identityEducation
+
+- id.
+- identityId.
+- institution.
+- program.
+- dates.
+- description.
+
+### identitySkills
+
+- id.
+- identityId.
+- name.
+- category.
+- order.
+
+### cards
+
+- id.
+- ownerId.
+- publicCode.
+- identityId.
+- design.
+- status.
+- cardType.
+- createdAt.
+- updatedAt.
+
+### contacts
+
+- id.
+- ownerId.
+- name.
+- organization.
+- email.
+- phone.
+- tags.
+- notes.
+- createdAt.
+- updatedAt.
+
+### analyticsEvents
+
+- id.
+- identityId.
+- eventType.
+- timestamp.
+- source.
+- targetId.
+
+### notifications
+
+- id.
+- ownerId.
+- type.
+- title.
+- message.
+- read.
+- createdAt.
+
+### plans
+
+- id.
+- name.
+- features.
+- limits.
+- displayOrder.
+
+### adminAudit
+
+- id.
+- actorId.
+- action.
+- targetType.
+- targetId.
+- timestamp.
+
+Ajustar la estructura a las características de Firestore.
+
+Utilizar subcolecciones cuando simplifiquen la propiedad y las reglas de acceso.
+
+No trasladar mecánicamente un modelo relacional SQL a Firestore.
+
+## 49. REGLAS DE SEGURIDAD
+
+Implementar reglas que garanticen:
+
+- Cada usuario solo puede modificar sus datos.
+- Los perfiles públicos pueden consultarse sin autenticación.
+- Los perfiles privados requieren autorización.
+- Los contactos son privados.
+- Las preferencias son privadas.
+- Las tarjetas solo pueden modificarse por su propietario o procesos autorizados.
+- Los campos de propiedad no pueden falsificarse.
+- Los permisos administrativos no pueden otorgarse desde el cliente.
+- Los eventos analíticos no permiten escrituras arbitrarias.
+- Los archivos subidos tienen restricciones de acceso y tamaño.
+
+Validar reglas mediante pruebas.
+
+No confiar en que una ruta protegida en React impida el acceso directo a Firestore.
+
+## 50. ARCHIVOS E IMÁGENES
+
+Permitir cargar:
+
+- Fotografía de perfil.
+- Portada.
+- Imágenes de proyectos.
+
+Validar:
+
+- Tipo de archivo.
+- Tamaño.
+- Extensión permitida.
+- Propiedad del recurso.
+
+Utilizar Firebase Storage si está habilitado.
+
+Si requiere activar facturación o configuración adicional, informar la dependencia y mantener una alternativa de imágenes predeterminadas.
+
+No guardar imágenes grandes en documentos Firestore.
+
+---
+
+# PARTE XIV. CONFIGURACIÓN Y ADMINISTRACIÓN
+
+## 51. AJUSTES
+
+Ruta:
+
+`/app/ajustes`
+
+Secciones:
+
+- Perfil de cuenta.
+- Apariencia.
+- Seguridad.
+- Notificaciones.
+- Privacidad.
+- Datos.
+- Eliminación de cuenta.
+
+Permitir:
+
+- Cambiar nombre.
+- Cambiar fotografía.
+- Cambiar tema.
+- Actualizar preferencias.
+- Gestionar contraseña mediante Firebase.
+- Exportar datos.
+- Solicitar eliminación de cuenta.
+
+La eliminación definitiva de datos asociados debe realizarse mediante un procedimiento seguro que incluya los documentos y archivos relacionados.
+
+No limitar la eliminación a cerrar sesión o borrar un documento de perfil.
+
+## 52. NOTIFICACIONES
+
+Crear un sistema de notificaciones para:
+
+- Identidad publicada.
+- Tarjeta asociada.
+- Cambios importantes.
+- Acciones completadas.
+- Advertencias de configuración.
+
+Mostrar:
+
+- Estado leído/no leído.
+- Fecha.
+- Acción relacionada.
+- Lista de notificaciones.
+
+No enviar correos reales sin un servicio configurado.
+
+## 53. ADMINISTRACIÓN
+
+Ruta:
+
+`/admin`
+
+Crear un panel administrativo para:
+
+- Resumen general.
+- Usuarios.
+- Identidades.
+- Tarjetas.
+- Planes.
+- Configuración.
+- Auditoría.
+
+El acceso administrativo debe validarse mediante privilegios seguros del servidor, como custom claims de Firebase.
+
+No permitir que un usuario se convierta en administrador modificando localStorage o un campo editable de Firestore.
+
+No habilitar acciones administrativas sensibles sin infraestructura confiable.
+
+---
+
+# PARTE XV. RESPONSIVE Y ACCESIBILIDAD
+
+## 54. ESCRITORIO
+
+Implementar:
+
+- Sidebar.
+- Topbar.
+- Grillas.
+- Tablas.
+- Editor dividido.
+- Escenas 3D amplias.
+- Paneles laterales.
+
+## 55. TABLET
+
+Implementar:
+
+- Sidebar colapsable.
+- Grillas adaptadas.
+- Formularios reorganizados.
+- Escenas 3D redimensionadas.
+
+## 56. MÓVIL
+
+Implementar:
+
+- Navegación inferior.
+- Menús accesibles.
+- Formularios de una columna.
+- Tarjetas apiladas.
+- Editor por pestañas.
+- Botones táctiles.
+- Modales adaptados.
+- Escena NFC manipulable con el dedo.
+
+Evitar desplazamiento horizontal accidental.
+
+## 57. ACCESIBILIDAD
+
+Tomar como referencia WCAG 2.2 AA.
+
+Implementar:
+
+- Contraste adecuado.
+- Navegación mediante teclado.
+- Estados focus visibles.
+- Etiquetas de formularios.
+- Mensajes de error accesibles.
+- Botones con nombres descriptivos.
+- Textos alternativos.
+- Respeto a movimiento reducido.
+- Tamaños táctiles apropiados.
+- Estructura semántica.
+
+La experiencia 3D debe contar con una alternativa accesible.
+
+---
+
+# PARTE XVI. EXPERIENCIA DE USUARIO
+
+## 58. ESTADOS DE INTERFAZ
+
+Todos los módulos deben contemplar:
+
+- Loading.
+- Success.
+- Error.
+- Empty.
+- Disabled.
+- Saving.
+- Saved.
+- Unsaved changes.
+- Offline cuando corresponda.
+
+Implementar skeleton loaders donde mejoren la percepción de carga.
+
+## 59. MICROINTERACCIONES
+
+Utilizar:
+
+- Hover sutil.
+- Transiciones de botones.
+- Indicadores de guardado.
+- Toasts.
+- Modales.
+- Confirmaciones.
+- Animaciones de pestañas.
+- Transiciones de navegación.
+
+No exagerar la duración.
+
+## 60. FORMULARIOS
+
+Implementar:
+
+- Validación inmediata cuando sea apropiado.
+- Mensajes claros.
+- Indicadores de campos obligatorios.
+- Restricciones de longitud.
+- Normalización de URLs.
+- Prevención de envíos duplicados.
+- Estados de envío.
+- Confirmaciones.
+
+## 61. BÚSQUEDA Y FILTROS
+
+Aplicar en:
+
+- Identidades.
+- Contactos.
+- Tarjetas.
+- Proyectos cuando corresponda.
+
+Utilizar filtros claros y consistentes.
+
+---
+
+# PARTE XVII. DATOS DE DEMOSTRACIÓN
+
+## 62. PERFIL DE ALEX RIVERA
+
+Crear un perfil completo de ejemplo.
+
+Nombre:
+
+**Alex Rivera**
+
+Profesión:
+
+**Diseñador digital y desarrollador web**
+
+Biografía:
+
+«Creo experiencias digitales donde el diseño y la tecnología se encuentran».
+
+Incluir:
+
+- Fotografía de ejemplo.
+- Portada.
+- Portafolio.
+- Tres proyectos ficticios.
+- Habilidades.
+- Experiencia.
+- Educación.
+- Redes sociales de ejemplo.
+- Botón de contacto.
+- Descarga vCard.
+
+El perfil debe estar disponible en:
+
+`/demo/perfil/alex-rivera`
+
+Los enlaces ficticios no deben conducir a cuentas reales de terceros.
+
+## 63. DATOS INICIALES
+
+Crear datos de demostración coherentes para:
+
+- Una identidad profesional.
+- Una identidad académica.
+- Dos tarjetas virtuales.
+- Contactos de ejemplo.
+- Proyectos.
+- Plantillas.
+
+Los datos de demostración deben estar claramente separados de los datos reales de usuarios.
+
+No sobrescribir información existente durante la inicialización.
+
+No poblar colecciones globales sin autorización o sin una operación de inicialización controlada.
+
+---
+
+# PARTE XVIII. MODO PRESENTACIÓN
+
+## 64. NEXID ONE SHOWCASE
+
+Crear un modo de presentación para exposiciones.
+
+Debe permitir recorrer:
+
+1. Introducción de la marca.
+2. Problema y solución.
+3. Productos.
+4. Demostración NFC.
+5. Perfil de Alex Rivera.
+6. Editor de identidades.
+7. Vinculación de tarjetas.
+8. Código QR.
+9. Dashboard.
+10. Estadísticas.
+
+Incluir:
+
+- Avanzar.
+- Retroceder.
+- Saltar.
+- Finalizar.
+
+El modo presentación debe reutilizar las pantallas reales del producto.
+
+No crear una segunda aplicación desconectada.
+
+---
+
+# PARTE XIX. SEGURIDAD Y PRIVACIDAD
+
+## 65. SEGURIDAD GENERAL
+
+Implementar:
+
+- Firebase Authentication.
+- Firestore Security Rules.
+- Storage Security Rules.
+- Validación de entradas.
+- Validación de propiedad.
+- Protección de rutas.
+- Manejo seguro de errores.
+- Restricciones de archivos.
+- Prevención de enlaces peligrosos.
+- Protección contra escalamiento de privilegios.
+
+No colocar claves privadas ni credenciales administrativas en el frontend.
+
+## 66. PRIVACIDAD
+
+Aplicar minimización de datos.
+
+No recopilar información personal innecesaria.
+
+Permitir que el usuario decida qué información aparece públicamente.
+
+No publicar automáticamente información de contacto privada.
+
+Separar los datos públicos de los datos de cuenta.
+
+Preparar políticas de privacidad y términos adaptables al contexto colombiano, sujetos a revisión legal.
+
+---
+
+# PARTE XX. VERCEL Y DESPLIEGUE
+
+## 67. PREPARACIÓN PARA PRODUCCIÓN
+
+El proyecto debe poder compilarse para producción.
+
+Configurar:
+
+- Scripts de build.
+- Variables de entorno.
+- Rutas SPA.
+- Página 404.
+- Gestión de errores.
+- Recursos estáticos.
+- Optimización de imágenes.
+- Carga diferida.
+
+## 68. VARIABLES DE ENTORNO
+
+Utilizar variables compatibles con Vite cuando corresponda.
+
+Ejemplos:
+
+```env
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_PUBLIC_APP_URL=
+```
+
+No inventar valores.
+
+No incluir credenciales de cuentas de servicio.
+
+## 69. DOMINIO Y ENLACES
+
+Utilizar una URL pública configurable.
+
+Los perfiles, QR y tarjetas deben apuntar al dominio publicado.
+
+No utilizar URLs temporales de AI Studio como enlaces permanentes.
+
+Configurar dominios autorizados de Firebase Authentication.
+
+## 70. RUTAS
+
+Garantizar que las rutas de React Router funcionen al actualizar la página directamente en Vercel.
+
+Incluir configuración de rewrites para una SPA cuando sea necesario.
+
+---
+
+# PARTE XXI. RENDIMIENTO
+
+## 71. OPTIMIZACIÓN GENERAL
+
+Implementar:
+
+- Lazy loading.
+- Code splitting.
+- Optimización de imágenes.
+- Compresión de recursos.
+- Memoización cuando aporte valor.
+- Consultas eficientes.
+- Paginación.
+- Debounce.
+- Caché apropiada.
+- Control de listeners.
+- Limpieza de efectos.
+
+## 72. OPTIMIZACIÓN THREE.JS
+
+No cargar todas las escenas 3D al iniciar la aplicación.
+
+Cargar únicamente las necesarias.
+
+Evitar renderizados continuos cuando una escena no sea visible.
+
+Mantener una tasa de cuadros estable en equipos de gama media.
+
+Priorizar fluidez sobre complejidad geométrica.
+
+---
+
+# PARTE XXII. PRUEBAS Y CALIDAD
+
+## 73. PRUEBAS FUNCIONALES
+
+Verificar:
+
+1. Registro de usuario.
+2. Inicio de sesión.
+3. Cierre de sesión.
+4. Recuperación de contraseña.
+5. Creación de identidad.
+6. Edición de identidad.
+7. Publicación.
+8. Apertura pública.
+9. Privacidad.
+10. Generación QR.
+11. Descarga vCard.
+12. Creación de tarjeta.
+13. Asociación de tarjeta.
+14. Redirección.
+15. Gestión de contactos.
+16. Estadísticas.
+17. Configuración.
+18. Modo claro.
+19. Modo oscuro.
+20. Experiencia NFC 3D.
+21. Interacción táctil.
+22. Navegación móvil.
+23. Actualización de rutas.
+24. Manejo de errores.
+25. Restricciones de seguridad.
+
+## 74. PRUEBAS DE SEGURIDAD
+
+Verificar que:
+
+- Un usuario no pueda modificar identidades ajenas.
+- Los contactos privados no sean públicos.
+- Las tarjetas no puedan reclamarse arbitrariamente.
+- Los privilegios administrativos no puedan falsificarse.
+- Los perfiles privados no puedan consultarse sin autorización.
+- Los archivos respeten las reglas de acceso.
+
+## 75. PRUEBAS RESPONSIVE
+
+Verificar en:
+
+- Móvil pequeño.
+- Móvil grande.
+- Tablet.
+- Portátil.
+- Monitor de escritorio.
+
+Comprobar especialmente la escena NFC y el editor de identidades.
+
+---
+
+# PARTE XXIII. ORDEN DE IMPLEMENTACIÓN
+
+## 76. FASE 1 — FUNDAMENTOS
+
+Implementar:
+
+- Configuración React.
+- TypeScript.
+- Tailwind.
+- Sistema de diseño.
+- Componentes UI.
+- Navegación.
+- Layouts.
+- Temas.
+- Firebase.
+
+## 77. FASE 2 — SITIO COMERCIAL
+
+Implementar:
+
+- Landing page.
+- Soluciones.
+- Cómo funciona.
+- Precios.
+- FAQ.
+- Contacto.
+- Footer.
+
+## 78. FASE 3 — EXPERIENCIA 3D
+
+Implementar:
+
+- Hero Three.js.
+- Modelos de tarjeta y teléfono.
+- Iluminación.
+- Demostración NFC interactiva.
+- Magnetic snapping.
+- Secuencia de conexión.
+- Apertura del perfil.
+- Fallback accesible.
+
+## 79. FASE 4 — AUTENTICACIÓN
+
+Implementar:
+
+- Registro.
+- Login.
+- Recuperación.
+- Sesión.
+- Rutas protegidas.
+- Onboarding.
+
+## 80. FASE 5 — IDENTIDADES
+
+Implementar:
+
+- CRUD.
+- Editor.
+- Plantillas.
+- Vista previa.
+- Publicación.
+- Perfiles públicos.
+
+## 81. FASE 6 — TARJETAS Y COMPARTICIÓN
+
+Implementar:
+
+- Tarjetas virtuales.
+- Personalizador 3D.
+- Asociación.
+- Redirección.
+- QR.
+- vCard.
+
+## 82. FASE 7 — CONTACTOS Y ANALÍTICA
+
+Implementar:
+
+- Gestor de contactos.
+- Filtros.
+- Exportación.
+- Eventos.
+- Gráficos.
+- Estados vacíos.
+
+## 83. FASE 8 — CONFIGURACIÓN Y ADMINISTRACIÓN
+
+Implementar:
+
+- Ajustes.
+- Notificaciones.
+- Privacidad.
+- Administración.
+- Auditoría.
+
+## 84. FASE 9 — REVISIÓN FINAL
+
+Implementar:
+
+- Pruebas.
+- Correcciones.
+- Accesibilidad.
+- Optimización.
+- Responsive.
+- Documentación.
+- Configuración Vercel.
+
+Cada fase debe conservar la funcionalidad de las anteriores.
+
+No eliminar características ya desarrolladas para incorporar otras nuevas.
+
+---
+
+# PARTE XXIV. CRITERIOS DE ACEPTACIÓN
+
+## 85. RESULTADO MÍNIMO ACEPTABLE
+
+NEXID ONE estará listo para su demostración cuando:
+
+- La landing page esté completa.
+- La identidad visual sea consistente.
+- El hero tridimensional funcione.
+- La demostración NFC sea interactiva.
+- La tarjeta pueda arrastrarse hacia el teléfono.
+- El efecto de conexión se reproduzca correctamente.
+- El perfil de Alex Rivera pueda explorarse.
+- Firebase Authentication funcione.
+- Se puedan crear identidades.
+- Se puedan editar perfiles.
+- Los cambios se guarden en Firestore.
+- Los perfiles publicados puedan abrirse desde otros dispositivos.
+- Se puedan generar QR.
+- Las tarjetas virtuales puedan asociarse a identidades.
+- Se puedan administrar contactos.
+- El dashboard muestre datos reales.
+- El modo oscuro y claro funcione.
+- La aplicación sea responsive.
+- Las reglas de seguridad estén implementadas.
+- La aplicación compile sin errores críticos.
+- El proyecto esté preparado para Vercel.
+
+Las funcionalidades que requieran infraestructura adicional deben estar identificadas y no presentarse como completadas hasta que funcionen.
+
+---
+
+# PARTE XXV. INSTRUCCIONES FINALES PARA GOOGLE AI STUDIO
+
+## 86. PRINCIPIOS DE EJECUCIÓN
+
+No reduzcas NEXID ONE a una landing page.
+
+No reemplaces la demostración NFC interactiva por un video.
+
+No utilices una simple imagen estática cuando se solicita una escena tridimensional.
+
+No conviertas la experiencia NFC en un videojuego.
+
+No utilices efectos visuales exagerados.
+
+No elimines Firebase para sustituirlo por localStorage sin autorización.
+
+No inventes estadísticas.
+
+No generes enlaces QR que conduzcan a rutas inexistentes.
+
+No presentes tarjetas virtuales como tarjetas físicas programadas.
+
+No implementes autenticación insegura.
+
+No coloques secretos administrativos en el frontend.
+
+No dejes módulos incompletos sin indicar su estado.
+
+No generes interfaces genéricas sin identidad visual.
+
+No utilices colores arbitrarios que contradigan la paleta de marca.
+
+No sacrifiques accesibilidad por animaciones.
+
+No sacrifiques rendimiento por complejidad tridimensional.
+
+## 87. PRIORIDADES
+
+Si existen limitaciones de contexto, tiempo o capacidad de generación, prioriza:
+
+1. Arquitectura funcional.
+2. Identidad visual premium.
+3. Landing page completa.
+4. Demostración NFC tridimensional.
+5. Firebase Authentication.
+6. Creación y edición de identidades.
+7. Perfiles públicos.
+8. QR y tarjetas.
+9. Dashboard.
+10. Contactos y analítica.
+11. Administración.
+12. Optimización final.
+
+Implementa progresivamente, manteniendo coherencia con toda esta especificación.
+
+No afirmes que una fase está terminada sin verificar sus criterios de aceptación.
+
+## 88. DOCUMENTACIÓN
+
+Crear un README que explique:
+
+- Qué es NEXID ONE.
+- Tecnologías utilizadas.
+- Instalación.
+- Variables de entorno.
+- Configuración de Firebase.
+- Reglas de Firestore.
+- Configuración de Storage.
+- Ejecución local.
+- Compilación.
+- Despliegue en Vercel.
+- Funciones disponibles.
+- Limitaciones conocidas.
+- Funcionalidades pendientes.
+
+## 89. VISIÓN FINAL
+
+NEXID ONE debe ser una experiencia digital integral que permita comprender, experimentar y utilizar una nueva forma de identidad profesional.
+
+La plataforma debe combinar la claridad de un producto empresarial, la sofisticación de una marca tecnológica premium y la interactividad de una aplicación moderna.
+
+La demostración NFC debe ser especialmente memorable: el visitante debe poder explorar una tarjeta tridimensional, manipularla, acercarla a un teléfono y observar cómo se abre una identidad digital.
+
+El resto de la plataforma debe mantener el mismo nivel de cuidado mediante un dashboard elegante, un editor de perfiles intuitivo, tarjetas personalizables, códigos QR funcionales, gestión de contactos y estadísticas.
+
+**El objetivo es construir el prototipo funcional de una startup tecnológica real, con una experiencia visual sobresaliente, una arquitectura escalable y una identidad comercial reconocible.**
+
+**NEXID ONE — One identity. Infinite connections.**
+
+Comienza implementando el proyecto de manera organizada, siguiendo esta especificación como fuente principal de requisitos. Conserva el alcance completo y verifica cada funcionalidad antes de considerarla terminada.

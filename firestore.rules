@@ -1,0 +1,357 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Primitive Helpers ---
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return isVerifiedUser() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        request.auth.token.email == 'elcrack3d3@gmail.com'
+      );
+    }
+
+    // --- Entity Validation Blueprints ---
+    function isValidUserAccount(data) {
+      return data.keys().hasAll(['uid', 'displayName', 'email', 'onboardingCompleted', 'accountStatus', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'displayName', 'email', 'photoURL', 'onboardingCompleted', 'accountStatus', 'themePreference', 'languagePreference', 'createdAt', 'updatedAt'])
+        && isValidId(data.uid)
+        && data.uid == request.auth.uid
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 120
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 180
+        && (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 500))
+        && data.onboardingCompleted is bool
+        && data.accountStatus in ['active', 'suspended']
+        && (!('themePreference' in data) || data.themePreference in ['dark', 'light'])
+        && (!('languagePreference' in data) || data.languagePreference in ['es', 'en'])
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidIdentity(data) {
+      return data.keys().hasAll(['id', 'ownerId', 'slug', 'identityType', 'title', 'profession', 'templateId', 'visibility', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly([
+          'id', 'ownerId', 'slug', 'identityType', 'title', 'profession', 'company', 'location',
+          'bio', 'photoURL', 'coverURL', 'publicEmail', 'publicPhone', 'website',
+          'showEmail', 'showPhone', 'templateId', 'accentColor', 'coverStyle', 'buttonStyle',
+          'visibility', 'status', 'links', 'projects', 'experience', 'education', 'skills',
+          'sectionOrder', 'createdAt', 'updatedAt', 'publishedAt'
+        ])
+        && isValidId(data.id)
+        && isValidId(data.ownerId)
+        && data.slug is string && data.slug.size() >= 2 && data.slug.size() <= 80 && data.slug.matches('^[a-z0-9\\-]+$')
+        && data.identityType in ['professional', 'academic', 'business', 'creative']
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 120
+        && data.profession is string && data.profession.size() >= 1 && data.profession.size() <= 140
+        && (!('company' in data) || (data.company is string && data.company.size() <= 120))
+        && (!('location' in data) || (data.location is string && data.location.size() <= 120))
+        && (!('bio' in data) || (data.bio is string && data.bio.size() <= 1200))
+        && (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 600))
+        && (!('coverURL' in data) || (data.coverURL is string && data.coverURL.size() <= 600))
+        && (!('publicEmail' in data) || (data.publicEmail is string && data.publicEmail.size() <= 180))
+        && (!('publicPhone' in data) || (data.publicPhone is string && data.publicPhone.size() <= 40))
+        && (!('website' in data) || (data.website is string && data.website.size() <= 300))
+        && (!('showEmail' in data) || data.showEmail is bool)
+        && (!('showPhone' in data) || data.showPhone is bool)
+        && data.templateId in ['executive', 'minimal', 'creative', 'tech']
+        && (!('accentColor' in data) || (data.accentColor is string && data.accentColor.size() <= 20))
+        && (!('coverStyle' in data) || data.coverStyle in ['obsidian', 'editorial', 'minimal'])
+        && (!('buttonStyle' in data) || data.buttonStyle in ['solid', 'outline'])
+        && data.visibility in ['public', 'private']
+        && data.status in ['draft', 'published', 'archived']
+        && (!('links' in data) || (data.links is list && data.links.size() <= 20))
+        && (!('projects' in data) || (data.projects is list && data.projects.size() <= 12))
+        && (!('experience' in data) || (data.experience is list && data.experience.size() <= 15))
+        && (!('education' in data) || (data.education is list && data.education.size() <= 10))
+        && (!('skills' in data) || (data.skills is list && data.skills.size() <= 30))
+        && (!('sectionOrder' in data) || (data.sectionOrder is list && data.sectionOrder.size() <= 8))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp
+        && (!('publishedAt' in data) || data.publishedAt == null || data.publishedAt is timestamp);
+    }
+
+    function isValidCard(data) {
+      return data.keys().hasAll(['id', 'ownerId', 'publicCode', 'displayName', 'finish', 'layoutStyle', 'status', 'cardType', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly([
+          'id', 'ownerId', 'publicCode', 'identityId', 'identitySlug', 'displayName',
+          'roleLabel', 'finish', 'layoutStyle', 'status', 'cardType', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && isValidId(data.ownerId)
+        && data.publicCode is string && data.publicCode.size() >= 4 && data.publicCode.size() <= 40 && data.publicCode.matches('^[a-zA-Z0-9\\-]+$')
+        && (!('identityId' in data) || (data.identityId is string && data.identityId.size() <= 128))
+        && (!('identitySlug' in data) || (data.identitySlug is string && data.identitySlug.size() <= 80))
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 80
+        && (!('roleLabel' in data) || (data.roleLabel is string && data.roleLabel.size() <= 80))
+        && data.finish in ['obsidian', 'graphite', 'gold', 'ivory']
+        && data.layoutStyle in ['monogram', 'minimal', 'executive']
+        && data.status in ['unlinked', 'active', 'disabled']
+        && data.cardType in ['virtual', 'physical']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidContact(data) {
+      return data.keys().hasAll(['id', 'ownerId', 'name', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'ownerId', 'name', 'organization', 'role', 'email', 'phone', 'tags', 'notes', 'createdAt', 'updatedAt'])
+        && isValidId(data.id)
+        && isValidId(data.ownerId)
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 120
+        && (!('organization' in data) || (data.organization is string && data.organization.size() <= 120))
+        && (!('role' in data) || (data.role is string && data.role.size() <= 120))
+        && (!('email' in data) || (data.email is string && data.email.size() <= 180))
+        && (!('phone' in data) || (data.phone is string && data.phone.size() <= 40))
+        && (!('tags' in data) || (data.tags is list && data.tags.size() <= 10 && (data.tags.size() == 0 || data.tags[0] is string)))
+        && (!('notes' in data) || (data.notes is string && data.notes.size() <= 1000))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidAnalyticsEvent(data) {
+      return data.keys().hasAll(['id', 'identityId', 'identityOwnerId', 'eventType', 'source', 'timestamp'])
+        && data.keys().hasOnly(['id', 'identityId', 'identityOwnerId', 'eventType', 'source', 'targetId', 'timestamp'])
+        && isValidId(data.id)
+        && isValidId(data.identityId)
+        && isValidId(data.identityOwnerId)
+        && data.eventType in ['profile_view', 'link_click', 'vcard_download', 'card_redirect', 'share_action']
+        && data.source in ['web', 'qr', 'nfc_redirect', 'direct']
+        && (!('targetId' in data) || (data.targetId is string && data.targetId.size() <= 120))
+        && data.timestamp is timestamp;
+    }
+
+    function isValidNotification(data) {
+      return data.keys().hasAll(['id', 'ownerId', 'type', 'title', 'message', 'read', 'createdAt'])
+        && data.keys().hasOnly(['id', 'ownerId', 'type', 'title', 'message', 'read', 'actionPath', 'createdAt'])
+        && isValidId(data.id)
+        && isValidId(data.ownerId)
+        && data.type in ['identity_published', 'card_linked', 'system_info', 'config_warning']
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 140
+        && data.message is string && data.message.size() >= 1 && data.message.size() <= 400
+        && data.read is bool
+        && (!('actionPath' in data) || (data.actionPath is string && data.actionPath.size() <= 200))
+        && data.createdAt is timestamp;
+    }
+
+    function isValidAdminAudit(data) {
+      return data.keys().hasAll(['id', 'actorId', 'action', 'targetType', 'targetId', 'timestamp'])
+        && data.keys().hasOnly(['id', 'actorId', 'action', 'targetType', 'targetId', 'timestamp'])
+        && isValidId(data.id)
+        && isValidId(data.actorId)
+        && data.action is string && data.action.size() >= 1 && data.action.size() <= 120
+        && data.targetType is string && data.targetType.size() >= 1 && data.targetType.size() <= 60
+        && isValidId(data.targetId)
+        && data.timestamp is timestamp;
+    }
+
+    // --- Collection Rules ---
+
+    // Admins registry (read-only from client)
+    match /admins/{adminUid} {
+      allow get: if isValidId(adminUid) && (isOwner(adminUid) || isAdmin());
+      allow list, write: if false;
+    }
+
+    // Users (PII strict owner/admin isolation)
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isValidId(userId)
+        && isOwner(userId)
+        && isValidUserAccount(incoming())
+        && incoming().uid == userId
+        && incoming().accountStatus == 'active'
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isValidId(userId)
+        && isValidUserAccount(incoming())
+        && incoming().uid == existing().uid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          isAdmin() ||
+          (isOwner(userId) && incoming().accountStatus == existing().accountStatus
+            && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'photoURL', 'onboardingCompleted', 'themePreference', 'languagePreference', 'updatedAt']))
+        );
+      allow delete: if isValidId(userId) && (isOwner(userId) || isAdmin());
+    }
+
+    // Identities (Public only when published + public; private strictly owner/admin)
+    match /identities/{identityId} {
+      allow get: if isValidId(identityId) && (
+        (existing().status == 'published' && existing().visibility == 'public') ||
+        isOwner(existing().ownerId) ||
+        isAdmin()
+      );
+      allow list: if (
+        (resource.data.status == 'published' && resource.data.visibility == 'public') ||
+        (isSignedIn() && resource.data.ownerId == request.auth.uid) ||
+        isAdmin()
+      );
+      allow create: if isValidId(identityId)
+        && isSignedIn()
+        && isValidIdentity(incoming())
+        && incoming().id == identityId
+        && incoming().ownerId == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isValidId(identityId)
+        && isSignedIn()
+        && isValidIdentity(incoming())
+        && incoming().id == existing().id
+        && incoming().ownerId == existing().ownerId
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          isAdmin() ||
+          (isOwner(existing().ownerId) && incoming().diff(existing()).affectedKeys().hasOnly([
+            'slug', 'identityType', 'title', 'profession', 'company', 'location',
+            'bio', 'photoURL', 'coverURL', 'publicEmail', 'publicPhone', 'website',
+            'showEmail', 'showPhone', 'templateId', 'accentColor', 'coverStyle', 'buttonStyle',
+            'visibility', 'status', 'links', 'projects', 'experience', 'education', 'skills',
+            'sectionOrder', 'updatedAt', 'publishedAt'
+          ]))
+        );
+      allow delete: if isValidId(identityId) && (isOwner(existing().ownerId) || isAdmin());
+    }
+
+    // Cards (Virtual cards managed by owner; physical cards require admin/server issuance; active cards resolvable for public NFC redirect)
+    match /cards/{cardId} {
+      allow get: if isValidId(cardId) && (
+        existing().status == 'active' ||
+        isOwner(existing().ownerId) ||
+        isAdmin()
+      );
+      allow list: if (
+        resource.data.status == 'active' ||
+        (isSignedIn() && resource.data.ownerId == request.auth.uid) ||
+        isAdmin()
+      );
+      allow create: if isValidId(cardId)
+        && isSignedIn()
+        && isValidCard(incoming())
+        && incoming().id == cardId
+        && incoming().ownerId == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (isAdmin() || incoming().cardType == 'virtual');
+      allow update: if isValidId(cardId)
+        && isSignedIn()
+        && isValidCard(incoming())
+        && incoming().id == existing().id
+        && incoming().ownerId == existing().ownerId
+        && incoming().publicCode == existing().publicCode
+        && incoming().cardType == existing().cardType
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          isAdmin() ||
+          (isOwner(existing().ownerId) && incoming().diff(existing()).affectedKeys().hasOnly([
+            'identityId', 'identitySlug', 'displayName', 'roleLabel', 'finish', 'layoutStyle', 'status', 'updatedAt'
+          ]))
+        );
+      allow delete: if isValidId(cardId) && (isOwner(existing().ownerId) || isAdmin());
+    }
+
+    // Contacts (Strictly private to ownerId)
+    match /contacts/{contactId} {
+      allow get: if isValidId(contactId) && (isOwner(existing().ownerId) || isAdmin());
+      allow list: if (isSignedIn() && resource.data.ownerId == request.auth.uid) || isAdmin();
+      allow create: if isValidId(contactId)
+        && isSignedIn()
+        && isValidContact(incoming())
+        && incoming().id == contactId
+        && incoming().ownerId == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+      allow update: if isValidId(contactId)
+        && isSignedIn()
+        && isValidContact(incoming())
+        && incoming().id == existing().id
+        && incoming().ownerId == existing().ownerId
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          isAdmin() ||
+          (isOwner(existing().ownerId) && incoming().diff(existing()).affectedKeys().hasOnly([
+            'name', 'organization', 'role', 'email', 'phone', 'tags', 'notes', 'updatedAt'
+          ]))
+        );
+      allow delete: if isValidId(contactId) && (isOwner(existing().ownerId) || isAdmin());
+    }
+
+    // Analytics Events (Observable events for published public identities; read strictly by identityOwnerId or admin)
+    match /analyticsEvents/{eventId} {
+      allow get: if isValidId(eventId) && (isOwner(existing().identityOwnerId) || isAdmin());
+      allow list: if (isSignedIn() && resource.data.identityOwnerId == request.auth.uid) || isAdmin();
+      allow create: if isValidId(eventId)
+        && isValidAnalyticsEvent(incoming())
+        && incoming().id == eventId
+        && incoming().timestamp == request.time
+        && exists(/databases/$(database)/documents/identities/$(incoming().identityId))
+        && get(/databases/$(database)/documents/identities/$(incoming().identityId)).data.ownerId == incoming().identityOwnerId
+        && get(/databases/$(database)/documents/identities/$(incoming().identityId)).data.status == 'published'
+        && get(/databases/$(database)/documents/identities/$(incoming().identityId)).data.visibility == 'public';
+      allow update, delete: if false;
+    }
+
+    // Notifications (Strictly private to ownerId)
+    match /notifications/{notificationId} {
+      allow get: if isValidId(notificationId) && (isOwner(existing().ownerId) || isAdmin());
+      allow list: if (isSignedIn() && resource.data.ownerId == request.auth.uid) || isAdmin();
+      allow create: if isValidId(notificationId)
+        && isSignedIn()
+        && isValidNotification(incoming())
+        && incoming().id == notificationId
+        && incoming().ownerId == request.auth.uid
+        && incoming().createdAt == request.time;
+      allow update: if isValidId(notificationId)
+        && isSignedIn()
+        && isValidNotification(incoming())
+        && incoming().id == existing().id
+        && incoming().ownerId == existing().ownerId
+        && incoming().createdAt == existing().createdAt
+        && isOwner(existing().ownerId)
+        && incoming().diff(existing()).affectedKeys().hasOnly(['read']);
+      allow delete: if isValidId(notificationId) && (isOwner(existing().ownerId) || isAdmin());
+    }
+
+    // Admin Audit Log (Admin only)
+    match /adminAudit/{auditId} {
+      allow get, list: if isAdmin();
+      allow create: if isValidId(auditId)
+        && isAdmin()
+        && isValidAdminAudit(incoming())
+        && incoming().id == auditId
+        && incoming().actorId == request.auth.uid
+        && incoming().timestamp == request.time;
+      allow update, delete: if false;
+    }
+  }
+}
